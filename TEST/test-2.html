@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  </head>
+  <body>
+    <input id="file" type="file" />
+    <button id="upload" onclick="upload()">Upload</button>
+    <button id="download" onclick="download()">Download</button>
+    <script>
+      function upload() {
+        var file = document.getElementById("file").files[0];
+        var formData = new FormData();
+        formData.append("file", file);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://example.com/upload", true);
+        xhr.onload = function () {
+          if (xhr.status == 200) {
+            alert("File uploaded successfully");
+          } else {
+            alert("File upload failed");
+          }
+        };
+        xhr.send(formData);
+      }
+
+      function download() {
+        var url = "https://example.com/download";
+        var link = document.createElement("a");
+        link.href = url;
+        link.download = "file.txt";
+        link.click();
+      }
+    </script>
+  </body>
+</html>

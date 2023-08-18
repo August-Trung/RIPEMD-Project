@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RIPEMD-160 Encryption</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    </head>
+    <body>
+        <h1>RIPEMD-160 Encryption</h1>
+        <p>Select the file you want to encrypt:</p>
+        <input type="file" id="file" />
+        <button onclick="encrypt()">Encrypt</button>
+        <p id="result"></p>
+        <button onclick="downloadFile()">Download</button>
+        <script>
+            function encrypt() {
+                var file = document.getElementById("file").files[0];
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    var data = event.target.result;
+                    var hash = CryptoJS.RIPEMD160(data);
+                    document.getElementById("result").innerHTML = hash;
+                };
+                reader.readAsArrayBuffer(file);
+            }
+            function downloadFile(file, filename) {
+                var blob = new Blob([file], { type: file.type });
+                var link = document.createElement("a");
+                link.href = window.URL.createObjectURL(blob);
+                link.download = filename;
+                link.click();
+            }
+        </script>
+    </bod>
+</html>

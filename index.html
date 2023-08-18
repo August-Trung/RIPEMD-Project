@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+    <link rel="logo" type="png" href="assets/img/logo-media.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/ripemd160.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="assets/js/style.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container-fluid">
+          <a href="" class="navbar-brand logo">
+            <img src="./assets/img/logo-media.png" alt="" />
+          </a>
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="" class="nav-link" role="button" id="dropdownMenuLink"
+                >RIPEMD-160 <i class="fas fa-angle-down"></i
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a href="type-1.html" class="dropdown-item">Type 1</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="member.html" class="nav-link">MEMBER</a>
+            </li>
+          </ul>
+          <div class="toggle_btn">
+            <i class="fas fa-bars"></i>
+          </div>
+          <ul class="child-toggle-dropdown">
+            <li class="toggleBtn-li">
+              <a href="index.html" class="dropdown-item">HOME</a>
+            </li>
+            <li class="dropdown toggleBtn toggleBtn-li">
+              <a href="" class="dropdown-item"
+                >RIPEMD-160 <i class="fas fa-angle-down"></i
+              ></a>
+              <ul class="inside-nav-responsive">
+                <li class="">
+                  <a href="type-1.html" class="">Type 1</a>
+                </li>
+              </ul>
+            </li>
+            <li class="toggleBtn-li">
+              <a href="member.html" class="dropdown-item">MEMBER</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <script>
+      var menu = document.querySelector(".toggle_btn");
+      menu.onclick = function() {
+        var dropdown = document.querySelector(".child-toggle-dropdown");
+        dropdown.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
